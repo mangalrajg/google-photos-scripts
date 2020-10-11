@@ -1,12 +1,11 @@
+# -*- coding: utf-8 -*-
 """
-Shows basic usage of the Photos v1 API.
-Creates a Photos v1 API service and prints the names and ids of the last 10 albums
-the user has access to.
+Created on Sat Oct 10 10:30:10 2020
+@author: Mangalraj
 """
-#from __future__ import print_function
+
 import os 
 import pickle
-#import json
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from google.auth.transport.requests import Request
@@ -15,6 +14,7 @@ import google_auth_httplib2  # This gotta be installed for build() to work
 import time
 # Setup the Photo v1 API
 SCOPES = ['https://www.googleapis.com/auth/photoslibrary.readonly']
+output_file_name="google_image_list.txt"
 creds = None
 if(os.path.exists("token.pickle")):
     with open("token.pickle", "rb") as tokenFile:
@@ -29,7 +29,8 @@ if not creds or not creds.valid:
         pickle.dump(creds, tokenFile)
 service = build('photoslibrary', 'v1', credentials = creds)
 
-f=open("google_image_list_2.txt","w",encoding='utf-8')
+f=open(output_file_name,"w",encoding='utf-8')
+
 # Call the Photo v1 API
 page_token = None
 max_errors=5
@@ -56,16 +57,5 @@ while True:
         num_errors = num_errors +1
         if num_errors > max_errors:
             break
-
-print("---------------------")
 f.close()
-#results = service.albums().list(
-#    pageSize=10, fields="nextPageToken,albums(id,title)").execute()
-#items = results.get('albums', [])
-#if not items:
-#    print('No albums found.')
-#else:
-#    print('Albums:')
-#    for item in items:
-#        print('{0} ({1})'.format(item['title'].encode('utf8'), item['id']))
-
+print("---------------------")
