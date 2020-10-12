@@ -1,6 +1,6 @@
 # google-photos-scripts
 ## A set of scripts i created to
-1. Create a file containing all filenames + id from my google photos account
+1. Create a file containing filenames + id of all media files in my google photos account
 2. Create a file containing all filenames from my local windows Pictures folder
 3. Compare and see which photos are extra in google
 4. Download the images that are not in local computer but in google
