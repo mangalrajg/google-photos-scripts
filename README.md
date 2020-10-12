@@ -19,7 +19,7 @@ format: csv
 fields: filename,id
 ```
 
-## Step 2 Get list of files C:\Users\Mangalraj\Pictures
+## Step 2 Get list of files from local compter (in my case C:\Users\Mangalraj\Pictures)
 ```
 Script: print-files-in-dir.py
 Output: file_image_list.txt
