@@ -42,7 +42,7 @@ def process_batch(mediaItems):
 # Setup the Photo v1 API
 SCOPES = ['https://www.googleapis.com/auth/photoslibrary.readonly']
 # List of image filemane + id's in csv format 
-image_id_list="op_2019_20.txt"
+image_id_list="op_image_list.txt"
 
 creds = None
 if(os.path.exists("token.pickle")):
